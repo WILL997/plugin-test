@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="pitest-1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/pitest-1.0.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/pitest-command-line-1.0.0-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/pitest-entry-1.0.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

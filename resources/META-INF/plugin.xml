@@ -1,0 +1,117 @@
+<idea-plugin>
+  <id>com.toj.plugin</id>
+  <name>TOJ</name>
+  <version>5.0</version>
+  <vendor email="1423512649@qq.com" url="http://192.168.10.8/home">University of South China</vendor>
+
+  <description><![CDATA[
+      一款支持本地快速构建测试脚本，在线拉取训练题目，提交获取评分的插件，功能丰富，性能优秀，兼容最新的IDEA版本，开发者来自南华大学计算机学院曾聪，指导老师南华大学李萌。参与人员：21软卓林嘉明，22软工文颖琳。
+    ]]></description>
+
+  <change-notes><![CDATA[
+      v5.0  目前该插件支持单元测试，基于属性驱动测试，数据驱动测试，变异测试，蜕变测试。
+            支持登录连接TOJ选取用户团队选取训练快速拉取训练题目到本地。
+            并支持提交测试用例获取对应评分。
+            兼容最新的IDEA版本。
+    ]]>
+  </change-notes>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.java</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+
+  <actions>
+
+    <!--创建一级目录组 -->
+    <group
+            id="com.intellij.platform.alltest"
+            text="AllTest"
+            popup="true">
+      <add-to-group
+              group-id="MainMenu"
+              anchor="last"/>
+      <!--添加该组内的登录action -->
+      <action id="org.TActions.org.intelllij.LoginAction"
+              class="TActions.org.intelllij.LoginAction"
+              text="Login"
+              description="登录"
+              icon="/icons/login.png"/>
+      <!--添加该组内的获取题目action -->
+      <action id="org.TActions.org.intelllij.GetTestAction"
+              class="TActions.org.intelllij.GetTestAction"
+              text="GetTest"
+              description="获取测试题目"
+              icon="/icons/gettest.png"/>
+      <!--添加该组内的获取分数action -->
+      <action id="org.TActions.org.intelllij.GetScoreAction"
+              class="TActions.org.intelllij.GetScoreAction"
+              text="GetScore(D)"
+              description="获取分数"
+              icon="/icons/getscore.png"/>
+    </group>
+
+
+    <!--创建二级组测试目录 -->
+    <group
+            id="org.intellij.sdk.action.GroupedActions"
+            text="TestCase"
+            popup="true"
+            icon="/icons/test.png">
+      <!--添加该组到某个关联的action id 后面 -->
+      <!--添加到工具菜单栏 -->
+      <add-to-group
+              group-id="com.intellij.platform.alltest"
+              anchor="last"/>
+      <!--添加到右键菜单栏 -->
+      <add-to-group
+              group-id="EditorPopupMenu"
+              anchor="first"/>
+      <!--添加该组内的单元测试action -->
+      <action
+              class="TActions.org.intelllij.UnitTestAction"
+              id="org.TActions.org.intelllij.UnitTestAction"
+              text="UnitTest(C)"
+              description="单元测试"
+              icon="/icons/unittest.png">
+      </action>
+      <!--添加该组内的数据驱动action -->
+      <action id="org.TActions.org.intelllij.DataDrivenAction"
+              class="TActions.org.intelllij.DataDrivenAction"
+              text="DataDriven(M)"
+              description="数据驱动"
+              icon="/icons/datadriven.png">
+      </action>
+      <!--添加该组内的基于属性驱动action -->
+      <action id="org.TActions.org.intelllij.PropertyBasedAction"
+              class="TActions.org.intelllij.PropertyBasedAction"
+              text="PropertyBased(M)"
+              description="基于属性驱动"
+              icon="/icons/propertybased.png"/>
+      <!--添加该组内的变异测试action -->
+      <action id="org.TActions.org.intelllij.MutationTestAction"
+              class="TActions.org.intelllij.MutationTestAction"
+              text="MutationTest(C)"
+              description="变异测试"
+              icon="/icons/mutationtest.png"/>
+      <!--添加该组内的蜕变测试action -->
+      <action id="org.TActions.org.intelllij.MetamorphicTestAction"
+              class="TActions.org.intelllij.MetamorphicTestAction"
+              text="MetamorphicTest(M)"
+              description="蜕变测试"
+              icon="/icons/metamorphictest.png"/>
+    </group>
+
+
+  </actions>
+
+</idea-plugin>

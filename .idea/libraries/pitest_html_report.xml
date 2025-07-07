@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pitest-html-report">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/pitest-html-report.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
